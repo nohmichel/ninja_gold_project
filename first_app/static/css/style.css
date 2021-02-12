@@ -1,0 +1,52 @@
+
+body{
+	margin:auto;
+	width: 1080px;
+	border:1px solid black;
+	padding: 10px;
+	font-family: "Lucida Sans Typewriter", "Lucida Console", Monaco, "Bitstream Vera Sans Mono", monospace;
+}
+
+.total{
+	display: inline-block;
+	margin: 25px 0px 15px 10px;
+}
+
+#sum{
+	height: 22px;
+	width: 250px;
+	border:1px solid black;
+}
+
+.location{
+	display: inline-block;
+	margin:5px;
+	height: 200px;
+	width: 250px;
+	border: 1px solid black;
+	text-align: center;
+	
+}
+
+.buttons{
+	margin-top: 50px;
+	font-family: Monaco, Consolas, "Lucida Console", monospace;
+}
+
+#results{
+	margin: auto;
+	width: 1060px;
+	height: 300px;
+	border: 1px solid black;
+}
+
+#act{
+	margin-left: 10px;
+
+}
+
+#reset{
+	margin: 10px;
+}
+
+

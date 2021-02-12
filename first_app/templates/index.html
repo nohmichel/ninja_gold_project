@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Ninja Money</title>
+	{% load static %}
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+	<div id="total" class="total_gold">
+		<form action="/process_money" method="post">
+	    {% csrf_token %}
+		<p id="gold" class="total">Your Gold:</p>
+		<p id="sum" class="total">{{request.session.counter}}</p>
+	</form>	
+  	</div>
+  	<div>	
+		<div id="farm" class="location">
+		<form action="/process_money" method='POST' class="form">
+		{% csrf_token %}
+			<h2>Farm</h2>
+			<p>(earns 10-20 golds)</p>
+			<input type="hidden" name="location" value="farm">
+			<input class="button" type="submit" value="Find Gold!">
+		</form>
+		</div>
+		<div id="Cave" class="location">
+		<form action="/process_money" method='POST' class="form">
+		{% csrf_token %}
+			<h2>Cave</h2>
+			<p>(earns 5-10 golds)</p>
+			<input type="hidden" name="location" value="cave">
+			<input class="button" type="submit" value="Find Gold!" name="cave">
+		</form>
+		</div>
+		<div id="House" class="location">
+		<form action="/process_money" method='POST' class="form">
+		{% csrf_token %}	
+			<h2>House</h2>
+			<p>(earns 2-5 golds)</p>
+			<input type="hidden" name="location" value="house">
+			<input class="button" type="submit" value="Find Gold!" name="house">
+		</form>
+		</div>
+		<div id="Casino" class="location">
+		<form action="/process_money" method='POST' class="form">
+		{% csrf_token %}
+			<h2>Casino</h2>
+			<p>(earns/takes 0-50 golds)</p>
+			<input type="hidden" name="location" value="casino">
+			<input class="button" type="submit" value="Find Gold!" name="casino">
+		</form>
+		</div>
+	</div>
+	<form action="/process_money" method='POST'>
+	{% csrf_token %}	
+	<p id="act">Activities:</p>
+	<div id="results">
+		{% for result in request.session.results %}	
+		<span><p>{{result}}</p></span>
+			{% endfor %}
+	</form>		
+	</div>
+	<div id="reset">
+		<a href="http://localhost:8000/reset">
+		<input type="submit" name="button" value="Reset">
+	</div>	
+</body>
+</html>
